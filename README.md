@@ -1,4 +1,4 @@
-# Leeroy Jenkins ⚔️
+# Leeroy Jenkins
 
 **Leeroy Jenkins** est un jeu d’exploration de donjon en Java, combinant génération procédurale, déplacements en labyrinthe, combat au tour par tour et gestion d’équipement.  
 Le joueur incarne un héros déterminé à s’enfoncer toujours plus profondément dans un donjon sans fin, affrontant créatures, pièges et boss improvisés, tout en récoltant armes, armures et potions pour améliorer ses chances de survie.
@@ -8,7 +8,7 @@ Le joueur incarne un héros déterminé à s’enfoncer toujours plus profondém
 </div>
 
 
-## 🧩 Fonctionnement général
+## Fonctionnement général
 
 Chaque partie se déroule dans un donjon généré procéduralement à partir d’un algorithme inspiré des labyrinthes classiques.  
 Le héros progresse case par case, découvre progressivement les corridors, combat les créatures qui rôdent, ramasse des équipements, et tente d’atteindre la sortie de chaque niveau.
@@ -22,7 +22,7 @@ Le jeu combine :
 - **Système d’équipement complet** (armures, armes, casques, potions)  
 - **Interface utilisateur en Java Swing**  
 - **Console interne affichant l’historique des événements**  
-
+- **Patron de conception Observer** pour synchroniser modèle et interface  
 
 ## 🗺️ Donjon généré procéduralement
 
@@ -110,26 +110,6 @@ Cette fenêtre utilise :
 
 <img width="789" height="365" alt="image" src="https://github.com/user-attachments/assets/7b230d93-bcae-461f-8f71-752eea6c10c9" />
 
-## 🧱 Interface utilisateur
-
-L’affichage graphique est entièrement développé en **Java Swing** :
-
-- zone principale affichant le labyrinthe  
-- zones d’information sur la droite : niveau, vie, stats, équipement  
-- barre de progression pour les points de vie  
-- console interne affichant les messages (combats, trouvailles, transitions de niveaux)
-
-La structure se compose de panneaux hiérarchisés :
-
-- `PanneauStatus`  
-- `PanneauStatusHaut`  
-- `PanneauStatusMilieu`  
-- `PanneauStatusBas`  
-- `PanneauPrincipal`  
-
-Chaque panneau se met à jour automatiquement grâce au patron **Observer**.
-
-
 ## 🎮 Contrôles
 
 | Touche / Action | Description |
@@ -139,11 +119,3 @@ Chaque panneau se met à jour automatiquement grâce au patron **Observer**.
 | **Collision avec équipement** | Ramasse l’objet |
 | **Bouton “Utiliser Potion”** | Restaure les PV si une potion est disponible |
 
-## 📝 Notes complémentaires
-
-Le jeu fonctionne entièrement sans dépendances externes, uniquement avec :
-
-- **Java standard (JDK 8+)**
-- **Java Swing**
-- **Collections Java**
-- **Patron Observer**
